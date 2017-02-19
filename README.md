@@ -24,7 +24,7 @@ abstract to our naked twin, elimination, and only-choice algorithms.
 Assuming our algorithms are unit agnostic, **we only need to introduce the additional diagonal units**. In order for the
 sudoku to be solved, each box must be consistent with its constraints across all units. Elimination, for example, 
 reduces the domain of other units that a box belongs to when we know the value for that box -- that constraint propagation 
-algorithms do not change by adding diagonal units. So a value of 9 in box A1, eliminates 9 from all other boxes of the 
+algorithm does not change by adding diagonal units. So a value of 9 in box A1, eliminates 9 from all other boxes of the 
 upper left 3x3 square, row A, column 1, and the diagional that intercets A1.
 
 ### Install
