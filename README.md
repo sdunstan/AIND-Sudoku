@@ -3,13 +3,29 @@
 
 # Question 1 (Naked Twins)
 Q: How do we use constraint propagation to solve the naked twins problem?  
-A: We eliminate naked twin values from peer units. I did this in two steps: 1) Find naked twin candidates and their corresponding
-units 2) Eliminate the naked twin values from the other boxes in the unit.
+A: Constraint propagation is the idea of reducing the domain of a variable using inference. 
+In a constraint satisfaction problem such as Sodoku, we can use the constraints on one variable to reduce the domain of another. 
+Naked twins allows us to use inference to reduce the domain of non-naked twins in the same units 
+because we know that the naked twin boxes domain has been reduced to only two values. Therefore, 
+other non-naked twin boxes in the same unit cannot contain these values.
+
+The naked twins strategy reduces the search space to allow a constraint satisfaction problem like Sodoku to be solved faster.
 
 # Question 2 (Diagonal Sudoku)
 Q: How do we use constraint propagation to solve the diagonal sudoku problem?  
-A: We extend the constraints of the puzzle to include the diagonal units. The original puzzle included constraints for
-row, column, and 3x3 square units. I just added a fourth set of constraints for the diagonals.
+A: Diagonal soduku extends the constraints of soduku to the game diagonals. This means that boxes in the corners belong to
+a diagonal unit in addition to the usual row, column, and 3x3 square units. Boxes in the center unit belong to both diagonal
+units in addition to the usual ones.
+
+In order to see how we can use constraint propagation to solve diagonal sodoku, we must first make the assumption that the
+algorithms we are using for constraint propagation are unit shape/type agnostic. In other words, the concept of a unit is
+abstract to our naked twin, elimination, and only-choice algorithms.
+
+Assuming our algorithms are unit agnostic, **we only need to introduce the additional diagonal units**. In order for the
+sudoku to be solved, each box must be consistent with its constraints across all units. Elimination, for example, 
+reduces the domain of other units that a box belongs to when we know the value for that box -- that constraint propagation 
+algorithms do not change by adding diagonal units. So a value of 9 in box A1, eliminates 9 from all other boxes of the 
+upper left 3x3 square, row A, column 1, and the diagional that intercets A1.
 
 ### Install
 
