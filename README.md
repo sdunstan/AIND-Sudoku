@@ -8,7 +8,8 @@ units 2) Eliminate the naked twin values from the other boxes in the unit.
 
 # Question 2 (Diagonal Sudoku)
 Q: How do we use constraint propagation to solve the diagonal sudoku problem?  
-A: *Student should provide answer here*
+A: We extend the constraints of the puzzle to include the diagonal units. The original puzzle included constraints for
+row, column, and 3x3 square units. I just added a fourth set of constraints for the diagonals.
 
 ### Install
 
